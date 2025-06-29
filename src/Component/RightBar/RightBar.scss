@@ -1,0 +1,99 @@
+@import "../../style.scss";
+
+
+
+.rightBar{
+    @include themify ($themes){
+    flex: 3;
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+    overflow: scroll;
+
+    @include mobile{
+        display: none;
+    }
+    @include tablet{
+        display: none;
+    }
+
+
+&::-webkit-scrollbar{
+    display: none;
+}
+
+.container{
+    padding: 20px;
+}
+.item{
+    box-shadow: 4px 6px 20px -4px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 8px 12px 55px -16px rgba(0,0,0,0.75);
+    -moz-box-shadow: 8px 12px 55px -16px rgba(0,0,0,0.75);
+    padding: 20px;
+    margin-bottom: 20px;
+    span{
+        color: #7A867C;
+    }
+    .user{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 20px 0px;
+
+        .userInfo{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+
+        img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .online{
+            width: 12px;
+            border-radius: 50%;
+            height: 12px;
+            background-color: #B8D8BA;
+            position: absolute;
+            top: 0;
+            left: 30px;
+
+        }
+
+        p{
+            color: #CFC8BF;
+        }
+        span{
+            font-weight: 500;
+            color: #7A867C;
+        }
+        }
+
+        .buttons{
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        button{
+            border: none;
+            padding: 5px;
+            color: #7A867C;
+            cursor: pointer;
+            
+
+            &:first-child{
+                background-color: #CFC8BF;
+            }
+            &:last-child{
+                background-color: #E4E1DC;
+            }
+        }
+        }
+    }
+}
+}
+}

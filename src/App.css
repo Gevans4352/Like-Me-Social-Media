@@ -1,0 +1,57 @@
+:root {
+  --bg: #1C1D1A;
+  --card: #6dce2c;
+  --text: #4add00;
+  --mutedText: #868D84;
+  --accent: #3A3D39;
+  --online: #A3C9A5;
+  --shadowSoft: 0 0 8px rgba(184, 216, 186, 0.2);
+  --transition-fast: all 0.2s ease-in-out;
+  --transition-medium: all 0.3s ease-in-out;
+  --transition-slow: all 0.5s ease-in-out;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  transition: var(--transition-medium);
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  min-height: 100vh;
+  transition: var(--transition-medium);
+}
+
+.dark-app {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.light-app {
+  background-color: #F9F9F6;
+  color: #7A867C;
+  box-shadow: var(--shadowSoft);
+  transition: var(--transition-fast);
+}
+
+.theme-dark * {
+  transition: var(--transition-medium);
+}
+
+.theme-light * {
+  transition: var(--transition-medium);
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,129 @@
+@import "../../style.scss";
+
+
+.User{
+@include themify ($themes){
+
+
+
+.images{
+
+    width: 100%;
+    height: 300px;
+    position: relative;
+
+    .cover{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+    .profilePic{
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        position: absolute;
+        left: 0;
+        margin: auto;
+        right: 0;
+        top: 200px;
+    }
+}
+
+.profileContainer{
+    padding: 20px 70px;
+
+    @include mobile{
+        padding: 10px;
+    }
+    
+.userInfo{
+    height: 100px;
+    border: 20px;
+    box-shadow: 10px 10px 5px 0px rgba(37, 36, 36, 0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(59, 54, 54, 0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(214,201,201,0.75);
+    background-color: #bec0bc;
+    color: #1c1d1c;
+    padding: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    @include mobile {
+        flex-direction: column;
+        height: 30vh;
+        padding: 20px;
+        margin-top:100px ;
+    }
+
+    .left{
+        flex: 1;
+        display: flex;
+        gap: 10px;
+    }
+
+    .center{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        span{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .info{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            
+
+            .item{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                color: themed("textColor");
+
+                span{
+                font-style: 12px;
+            }
+            }
+
+        }
+        button{
+        border: none;
+        padding: 5px;
+        color: #79837a;
+        background-color: #282b27;
+        cursor: pointer;
+        border-radius: 10px;
+        width: 60px;
+        height: 50px;
+        
+
+        &:hover{
+            background-color: #3A3D39;
+        }
+
+           
+
+            
+        }
+    }
+
+    .right{
+        flex: 1;
+        display: flex;
+        justify-content: flex-end ;
+        gap: 10px;
+        align-items: center;
+    }
+}
+}
+
+}
+}

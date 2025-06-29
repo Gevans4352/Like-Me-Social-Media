@@ -1,0 +1,117 @@
+$themes: (
+  light: (
+    bg: #F9F9F6,
+    card: #DDE6D5,
+    textColor: #7A867C,
+    mutedText: #A3A9A2,
+    accent: #C2C8BD,
+    colorOnline: #9ECBA3,
+    shadowSoft: 0 4px 20px rgba(122, 134, 124, 0.15),
+    transition-fast: all 0.2s ease-in-out,
+    transition-medium: all 0.3s ease-in-out,
+    transition-slow: all 0.5s ease-in-out
+  ),
+//DONT USE SEMICOLON HERE USE COMMA! because what the actual hell?!
+  dark: (
+  bg: #1C1D1A,             
+  card: #2A2D28,            
+  text: #C6CEC2,           
+  mutedText: #868D84,     
+  accent: #3A3D39,         
+  online: #A3C9A5,         
+  shadowSoft: 0 0 8px rgba(184, 216, 186, 0.2), 
+  transition-fast: all 0.2s ease-in-out,
+  transition-medium: all 0.3s ease-in-out,
+  transition-slow: all 0.5s ease-in-out,
+  )
+);
+
+//WHAT YOU ARE ABOUT TO SEE IS A PAIN THE ASS, JUST GO TO GOOGLE CS EVEN NOW I DONT UNDERSTAND
+
+@mixin themify($themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $value in $map {
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+
+@function themed($key){
+    @return map-get($theme-map, $key)
+}
+
+
+:root {
+  --bg: #1C1D1A;
+  --card: #6dce2c;
+  --text: #C6CEC2;
+  --mutedText: #868D84;
+  --accent: #3A3D39;
+  --online: #A3C9A5;
+  --shadowSoft: 0 0 8px rgba(184, 216, 186, 0.2);
+  --transition-fast: all 0.2s ease-in-out;
+  --transition-medium: all 0.3s ease-in-out;
+  --transition-slow: all 0.5s ease-in-out;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  transition: var(--transition-medium);
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  min-height: 100vh;
+  transition: var(--transition-medium);
+}
+
+.dark-app {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.light-app {
+  background-color: #F9F9F6;
+  color: #7A867C;
+  box-shadow: var(--shadowSoft);
+  transition: var(--transition-fast);
+}
+
+.theme-dark * {
+  transition: var(--transition-medium);
+}
+
+.theme-light * {
+  transition: var(--transition-medium);
+}
+
+
+@mixin mobile {
+  @media(max-width: 480px){
+    @content;
+  }
+}
+@mixin tablet {
+  @media(max-width: 960px){
+    @content;
+  }
+}
+
+
+
+
+
+
+
+
+

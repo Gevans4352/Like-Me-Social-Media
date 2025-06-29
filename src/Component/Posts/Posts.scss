@@ -1,0 +1,25 @@
+.posts{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.post{
+
+
+    .container{
+        padding: 20px;
+
+
+        .user{
+           display: flex;
+           align-items: center;
+           justify-content: space-between;
+
+           .userInfo{
+            
+           }
+
+        }
+    }
+}

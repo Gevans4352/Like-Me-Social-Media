@@ -1,0 +1,12 @@
+@import "../../style.scss";
+
+
+.homePage{
+    @include themify ($themes){
+   padding: 20px 70px;
+
+   @include mobile{
+    padding: 10px;
+   }
+}
+}

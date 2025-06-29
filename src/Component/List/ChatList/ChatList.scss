@@ -1,0 +1,88 @@
+.chatList{
+    flex: 1;
+    overflow: scroll;
+    .search{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+
+
+        .searchBar{
+            flex: 1;
+            background-color: #DDE6D5;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-radius: 10px;
+            border: .5px solid #F9F9F6;
+            padding: 5px;
+            background-color: transparent; 
+            transition: all 0.2s ease;
+            
+            
+           .MuiSvgIcon-root { 
+            color: #888;
+            font-size: 20px;
+            cursor: pointer;
+           }
+        }
+        input{
+        border: none;
+        outline: none;
+        background-color: transparent;
+        font-size: 14px;
+        color: #e4dddd;
+        padding: 3px 0; 
+        }
+    }
+    .addButton{
+        height: 40px;
+        width: 40px;
+        color: #888;
+        font-size: 20px;
+        cursor: pointer;
+        border-radius: 50%;
+        text-align: center;
+        border: none;
+        background-color: #5a645d ;
+        padding: 10px;
+         transition: background-color 0.3s ease-in-out;
+
+        &:hover{
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            background-color:  #4e6654;
+        }
+    }
+
+    .item{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 20px;
+        cursor: pointer;
+        border-bottom: 1px solid grey;
+
+
+        img{
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .textContainer{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        span{
+            font-weight: 500;
+        }
+
+        p{
+            font-size: 14px;
+            font-weight: 300;
+        }
+    }
+}

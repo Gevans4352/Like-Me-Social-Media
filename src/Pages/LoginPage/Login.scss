@@ -1,0 +1,109 @@
+:root {
+    --color-bg-dark: #2a2a2a;
+    --color-bg-black: #0f0f0f;
+    --color-white: #fefefe;
+    --color-primary: #3a1b6d;
+    --color-primary-light: #4d2a8a;
+    --color-danger: #ff6b6b;
+    --color-success: #6bff8f; 
+    --color-accent: #ff9e5e; 
+    --color-text-muted: #b0b0b0;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
+    --glow-primary: 0 0 12px rgba(90, 36, 150, 0.6);
+    --transition-fast: all 0.2s ease;
+    --transition-medium: all 0.3s ease;
+    --transition-slow: all 0.5s ease;
+
+}
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+
+
+.login{
+height: 100vh;
+background-color: purple;
+display: flex;
+justify-content: center;
+align-items: center;
+
+    .card{
+        display: flex;
+        background-color: #3a1b6d;
+        width: 70%;
+        border-radius: 10px;
+        min-height: 600px;
+        overflow: hidden;
+
+        .left{
+            flex: 1;
+            background: linear-gradient(rgba(29, 14, 36, 0.411), black), url("./dc05e2b0-f177-4bdb-939e-a5ebcb4cf234.jpg") center;
+            background-size: cover;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            color: #fefefe;
+            h2{
+                font-size: 95px;
+                line-height: 100px;
+            }
+            p{
+                
+            }
+            span{
+                font-size: 14px;
+            }
+            button{
+                width: 50%;
+                padding: 10px;
+                border: none;
+                background-color: var(--color-primary-light);
+                color: var(--color-text-muted);
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+        .right{
+            flex: 1;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+            justify-content: center;
+            h1{
+                color: white
+            }
+            form{
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                input{
+                    border: none;
+                    border-bottom: 1px solid --color-bg-dark;
+                    padding: 20px 10px;
+                    border-radius: 10px;
+                    border-color: var(--color-danger);
+                    box-shadow: 5px 5px 15px var(--color-danger);
+                    outline: none;
+                }
+                button{
+                    width: 50%;
+                    padding: 10px;
+                    border: none;
+                    border-radius: 10px;
+                    background-color: #4d2a8a;
+                    color: var(--color-text-muted);
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            }
+
+        }
+    }
+}

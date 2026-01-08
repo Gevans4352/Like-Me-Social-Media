@@ -1,0 +1,97 @@
+@import "../../style.scss";
+
+.recorderModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+
+
+   
+}
+
+.recorderModalContent {
+    background: rgba(0,0,0,0.8);
+    padding: 25px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    position: relative;
+    min-width: 280px;
+    
+}
+
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.recorderUI {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.pulseDot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: red;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.6); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.waveform {
+    display: flex;
+    gap: 4px;
+    height: 20px;
+    align-items: flex-end;
+
+    span {
+        width: 4px;
+        background: red;
+        border-radius: 3px;
+        animation: barBounce 0.8s infinite ease-in-out;
+    }
+
+    span:nth-child(2) { animation-delay: 0.1s; }
+    span:nth-child(3) { animation-delay: 0.2s; }
+    span:nth-child(4) { animation-delay: 0.3s; }
+    span:nth-child(5) { animation-delay: 0.4s; }
+}
+
+@keyframes barBounce {
+    0% { height: 5px; }
+    50% { height: 20px; }
+    100% { height: 5px; }
+}
+
+.submitBtn {
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: #98c499;
+    color: white;
+    font-weight: bold;
+}

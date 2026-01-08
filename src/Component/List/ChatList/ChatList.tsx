@@ -1,18 +1,40 @@
 import "./ChatList.scss";
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import ticktak from "./WhatsApp Image 2025-05-12 at 10.29.12 AM.jpeg"
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import { AuthContext } from "../../../Context/Autheciator";
+import AddUser from "./AddUser/AddUser";
+import { useUserStore } from "../../../lib/userStore";
+import { doc, onSnapshot } from "firebase/firestore";
+import { db } from "../../../lib/firebase";
 const ChatList = ()=>{
-    const [addUser, setAddUser] = useState(false)
-
-    const addinUser = (e: any) => {
+    type ChatType = {
+  [key: string]: any; 
+};
+    const [addUser, setAddUser] = useState(false);
+    const [chats, setChats] = useState<ChatType[]>([]);
+    const addinUser = (e: string) => {
     setAddUser(!addUser);
     console.log("clicked");
+    
  }
+ 
+ 
   const { currentUser } = useContext(AuthContext);
+  useEffect(()=>{
+      if (!currentUser?.uid) return;
+    const unSub = onSnapshot(doc(db, "userchats", currentUser?.uid), (doc) =>{
+        console.log("Current data: ", doc.data());
+        setChats(doc.data())
+        
+        return ()=>{
+            unSub()
+        }
+    })
+  },[])
+   
     return(
         <div className="chatList">
             <div className="search">
@@ -51,6 +73,7 @@ const ChatList = ()=>{
                         <p>Hello</p>
                     </div>
                 </div>
+                {addUser&& <AddUser/>}
         </div>
     );
 }

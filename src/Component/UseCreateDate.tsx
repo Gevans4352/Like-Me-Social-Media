@@ -1,4 +1,4 @@
-const useCreateDate = () =>{
+const useCreateDate = (p0: Date) =>{
     const dateObj = new Date();
     const month = dateObj.getMonth();
     let monthName;
@@ -29,8 +29,8 @@ const useCreateDate = () =>{
       break;
     }
 
-    const date = `${monthName} ${dateObj.getDate()}, ${dateObj.getFullYear()}, [${dateObj.getHours()}:${dateObj.getMinutes()}]`
-    return date;
+   const date = `${monthName} ${dateObj.getDate()}, ${dateObj.getFullYear()} (${dateObj.getHours().toString().padStart(2,'0')}:${dateObj.getMinutes().toString().padStart(2,'0')})`;
+ return date;
   
 
 }

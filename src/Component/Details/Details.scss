@@ -1,3 +1,121 @@
 .details{
     flex: 1;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+       border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+       border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgb(35, 44, 31); 
+    }
+    scrollbar-width: thin;
+    scrollbar-color: rgba(181, 212, 202, 0.082) rgba(181, 212, 202, 0);
+    
+
+    .user{
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        border-radius: 1px solid rgb(29, 28, 28);
+
+        img{
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+
+    .info{
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        .option{
+
+            .title{
+                display: flex;
+                align-items: center;
+                justify-content: space-between; 
+
+                .stylingIcon{
+                    width: 10px;
+                    height: 10px;
+                    background-color: rgb(20, 20, 20);
+                    padding: 10px;
+                    cursor: pointer;
+                    border-radius: 5px;
+                }
+            }
+
+            .photos{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                margin-top: 20px;
+
+                .photoItems{
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    
+                    .photoDetail{
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+
+                        .jackson{
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 5px;
+                            object-fit: cover;
+                        }  
+                        span {
+                            font-size: 14px;
+                            color: #ccc;
+                            font-weight: 300;
+                        }
+                    }
+                    .downloadIcon {
+                        font-size: 18px;
+                        width: 10px;
+                        height: 10px;
+                        background-color: rgb(20, 20, 20);
+                        padding: 10px;
+                        cursor: pointer;
+                        border-radius: 5px;
+                    }
+                    
+                }
+
+            }
+
+        }
+        button{
+            padding: 15px;
+            background-color: rgb(14, 31, 14);
+            color: white;
+            border: none;
+            cursor: pointer;
+
+            &:hover{
+                background-color: rgba(14, 31, 14, 0.863);
+            }
+            &.logout{
+                padding: 10px;
+                background-color: rgb(38, 49, 38);
+            }
+        }
+    }
 }

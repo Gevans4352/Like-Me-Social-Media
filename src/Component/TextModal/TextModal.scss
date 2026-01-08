@@ -1,0 +1,184 @@
+.textStoryModalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.textStoryModalContent {
+    position: relative;
+    width: 90%;
+    max-width: 400px;
+    height: 300px;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.555);
+    transition: background-color 0.3s ease;
+   padding-top: 200px;
+   text-align: center;
+
+   
+
+
+    ::placeholder{
+       text-align: center;
+    }
+
+    .fontChange{
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        border: 3px solid darkgreen;
+        background-color: rgba(0, 0, 0, 0.644);
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+        box-shadow: 0 0 8px rgba(2, 95, 2, 0.4);
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    .fontChange:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(59, 70, 59, 0.6);
+        border-color: #9fdb9f;
+    }
+    .fontChange:active {
+        transform: scale(0.95);
+        box-shadow: 0 0 10px rgba(133, 163, 133, 0.9);
+
+    }
+    .closeButton {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: none;
+        border: none;
+        color: white; 
+        cursor: pointer;
+        font-size: 24px;
+        padding: 5px;
+        z-index: 10;
+        transition: color 0.2s;
+        &:hover {
+            color: #ccc;
+        }
+    }
+
+    textarea {
+        flex-grow: 1;
+        width: 100%;
+        margin-bottom: 15px;
+        padding: 10px;
+        border: none;
+        border-radius: 8px;
+        resize: none;
+        font-size: 16px;
+        background-color: transparent; 
+        font-weight: 500;
+        color: white;
+        &::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .colorPalette {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 15px;
+        justify-content: center;
+        
+
+        .colorOption {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border 0.2s ease;
+        }
+    }
+
+    .saveButton {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 8px;
+        background-color: #98c499; 
+        color: white;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.2s;
+
+        &:disabled {
+            background-color: #aaa;
+            cursor: not-allowed;
+        }
+    }
+
+    .fontsModal {
+  position: absolute;
+  top:17px;
+  right: 100px;
+  z-index: 9999;
+
+  animation: dropDown 0.3s ease forwards;
+
+  .fontContent {
+    background: rgba(15, 15, 25, 0.8);
+    backdrop-filter: blur(12px);
+    padding: 8px; 
+    border-radius: 14px;
+    width: 200px; 
+    display: flex;
+    justify-content: center;
+    gap: 6px; 
+    align-items: center;
+
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    border: 1px solid rgba(0, 255, 255, 0.25);
+    transform-origin: top;
+    button {
+      background: transparent;
+      border: none;
+      padding: 8px;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      color: #d4faff;
+      transition: 0.25s ease;
+
+      &:hover {
+        background: rgba(0, 255, 255, 0.15);
+        box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+        transform: translateY(-2px) scale(1.08);
+      }
+
+      svg {
+        font-size: 22px;
+      }
+    }
+    
+}
+
+
+    }}

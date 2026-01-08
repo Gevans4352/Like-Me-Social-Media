@@ -2,6 +2,8 @@
     flex: 2;
     border-left: 1px solid grey;
     border-right: 1px solid grey;
+    display: flex;
+    flex-direction: column;
 
     height: 100%;
 
@@ -16,7 +18,7 @@
     .user{
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap: 10px;
         
         img{
             width: 50px;
@@ -26,9 +28,9 @@
         }
     
         .texts{
-            display: flex;
+            // display: flex;
             flex-direction: column;
-            gap: 5px;
+            // gap: 5px;
             
         }
     
@@ -43,5 +45,179 @@
             font-weight: 300;
             color: rgb(82, 80, 80);
         }
+
+    }
+    .userIcons{
+        display: flex;
+        align-items: center;
+        gap: 15px; 
+        & > * {
+            cursor: pointer;
+            width: 24px; 
+            height: 24px;
+            color: #777777; 
+            transition: color 0.2s ease;
+            
+            &:hover {
+                color: #ffffff; 
+            }
+        }
+
+    }
+.center {
+    padding: 20px;
+    flex: 1;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+       border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+       border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgb(35, 44, 31); 
+    }
+    scrollbar-width: thin;
+    scrollbar-color: rgba(181, 212, 202, 0.082) rgba(181, 212, 202, 0);
+    
+
+    .message {
+        max-width: 70%;
+        display: flex;
+        gap: 10px; 
+        align-items: flex-start;
+        margin-top: 10px; 
+
+        /* Avatar images only */
+        > img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%; /* circular */
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+
+            .messageImage {
+                width: 100%;
+                max-width: 300px; 
+                height: 300px;
+                object-fit: cover;
+                border-radius: 8px; 
+            }
+
+            p {
+                margin: 0;
+                padding: 10px 15px;
+                background-color: rgba(57, 61, 68, 0.5);
+                border-radius: 0px 10px 10px 10px;
+                color: white;
+                line-height: 1.4; 
+            }
+
+            span {
+                font-size: 12px;
+                color: #777777;
+                margin-left: 5px; 
+            }
+        }
+
+        /* Own message styles */
+        &.own {
+            align-self: flex-end;
+            flex-direction: row-reverse;
+
+            .text {
+                align-items: flex-end;
+
+                p {
+                    background-color: rgb(35, 44, 31);
+                    border-radius: 10px 0px 10px 10px;
+                }
+
+                span {
+                    margin-left: 0;
+                    margin-right: 5px; 
+                }
+            }
+        }
+    }
+}
+
+
+
+    .bottom{
+        margin-top: auto;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10;
+        justify-content: space-between;
+        border-top: 1px solid #777777;
+        position: relative;
+
+        .iconns{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        gap: 20;
+
+        .anotherSet{
+            width: 30px;
+            height: 20px;
+            gap: 10px;
+        }
+        }
+        .smileyFace{
+            width: 50px;
+            height: 30px;
+        }
+        .sendButton{
+            background-color: rgb(35, 44, 31);
+            padding: 10px 20px;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+        }
+        .input{
+            flex: 1;
+            background-color: rgba(57, 61, 68, 0.5);
+            border: none;
+            outline: none;
+            color: #777777;
+            border-radius:5px ;
+            font-size: 16px;
+            padding-left: 10px;
+            width: 300px;
+            height: 30px;
+
+        }
+    .emoji{
+        position: relative; 
+        
+       .picker{
+    position: absolute;
+    bottom: 100%;
+    right: 0; // Align to right instead of left
+    z-index: 1000;
+    width: 350px;
+    max-width: 90vw;
+}
+    }
     }
 }

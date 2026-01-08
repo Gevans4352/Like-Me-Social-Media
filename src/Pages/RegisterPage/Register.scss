@@ -1,3 +1,4 @@
+@import "../../style.scss";
 :root {
     --color-bg-dark: #2a2a2a;
     --color-bg-black: #0f0f0f;
@@ -15,34 +16,72 @@
     --transition-fast: all 0.2s ease;
     --transition-medium: all 0.3s ease;
     --transition-slow: all 0.5s ease;
-
 }
+
 html, body, #root {
   margin: 0;
   padding: 0;
   height: 100%;
 }
 
+.offline-notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-bg-black);
+    color: var(--color-white);
+    text-align: center;
+    padding: 12px 24px;
+    font-weight: bold;
+    border:  2px solid var(--color-bg-dark);
+    border-radius: 8px;
+    z-index: 1000;
+    max-width: 500px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
 
+.disabled-button {
+    background-color: #ccc !important;
+    cursor: not-allowed !important;
+    opacity: 0.6;
+}
 
 .register{
-height: 100vh;
-background-color: purple;
-display: flex;
-justify-content: center;
-align-items: center;
+    height: 100vh;
+    background-color: #1A0E23;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+
+    .linkita{
+        color: whitesmoke;
+    }
 
     .card{
         display: flex;
-        flex-direction: row-reverse ;
-        background-color: #3a1b6d;
+        flex-direction: row-reverse;
+        background-color: #24102D;
         width: 70%;
         border-radius: 10px;
         min-height: 600px;
         overflow: hidden;
+        @include tablet {
+            width: 85%;
+            min-height: 500px;
+        }
+
+        @include mobile {
+            width: 100%;
+            min-height: auto;
+            flex-direction: column; 
+            border-radius: 0;
+            padding: 0;
+        }
 
         .left{
-            flex: 1;
+            flex: 5;
             background: linear-gradient(rgba(29, 14, 36, 0.411), black), url("./dc05e2b0-f177-4bdb-939e-a5ebcb4cf234.jpg") center;
             background-size: cover;
             padding: 50px;
@@ -50,12 +89,28 @@ align-items: center;
             flex-direction: column;
             gap: 30px;
             color: #fefefe;
+            @include tablet {
+                padding: 30px;
+            }
+
+            @include mobile {
+               display: none;
+            }
             h2{
                 font-size: 95px;
                 line-height: 100px;
+
+                @include tablet {
+                    font-size: 60px;
+                    line-height: 70px;
+                }
+                @include mobile {
+                    font-size: 36px;
+                    line-height: 20px;
+                }
             }
             p{
-                
+                font-size: 20px;
             }
             span{
                 font-size: 14px;
@@ -69,32 +124,141 @@ align-items: center;
                 font-weight: bold;
                 cursor: pointer;
                 border-radius: 10px;
+                @include mobile {
+                    width: 80%; 
+                }
             }
         }
         .right{
-            flex: 1;
-            padding: 50px;
+            flex: 5;
             display: flex;
             flex-direction: column;
-            gap: 50px;
             justify-content: center;
+            padding: 50px;
+            @include tablet {
+                padding: 40px;
+            }
+
+            @include mobile {
+                flex: none;
+                padding: 30px 20px; 
+            }
             h1{
                 color: white
             }
             form{
                 display: flex;
+                position: relative;
                 flex-direction: column;
-                gap: 30px;
-                input{
-                    border: none;
-                    border-bottom: 1px solid --color-bg-dark;
+                gap: 10px;
+                label.avatarUpload {
+                    font-size: 14px;
+                    color: rgb(246, 248, 246);
+                    position: absolute;
+                    top: 70px;
+                    left: 60%;
+                    transform: translate(50%);
+                    cursor: pointer;
+                    background-color: #2a2a2a;
+                    width: 19px;
+                    text-align: center;
+                    padding: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                     border-radius: 10px;
-                    padding: 20px 10px;
+                    transition: color 0.2s ease;
+                    @include mobile {
+                        width: 120px; 
+                    }
+                    &:hover {
+                        color: rgb(60, 80, 60);
+                    }
+                }
+                .avatarPreview {
+                    width: 100px;
+                    height: 100px;
+                    position: relative;
+                    z-index: 1;
+                    object-fit: cover;
+                    border-radius: 20%;
+                    border: 1.5px solid rgb(38, 49, 38);
+                    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                    margin-bottom: 4px;
+                    transition: all 0.2s ease;
+                    display: block; 
+                    margin-left: auto;
+                    margin-right: auto;
+                    @include mobile {
+                        width: 150px; 
+                        height: 80px;
+                    }
+                    &:hover {
+                        transform: scale(1.05);
+                        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+                    }
+                }
+                .password-container {
+                    position: relative;
+                    width: 390px;
+                    margin-bottom: 15px;
+                    @include mobile {
+                        width: 100%; 
+                    }
+                }
+
+                .password-container input[name="password"] {
+                    border: none;
+                    border-bottom: 1px solid #8AFFC1;
+                    border-radius: 10px;
+                    padding: 20px 20px 20px 20px;
                     border-color: var(--color-danger);
                     box-shadow: 5px 5px 15px var(--color-danger);
                     outline: none;
+                    width: 98%;
+                    height: 20px;
+                    
                 }
-                button{
+
+                .password-container .password {
+                    position: absolute;
+                    right: 15px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    padding: 0;
+                    width: 24px;
+                    height: 24px;
+                }
+
+                .password-container .password img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+
+                input[name="fullname"],
+                input[name="email"], 
+                input[name="username"] {
+                    border: none;
+                    border-bottom: 1px solid var(--color-bg-dark);
+                    border-radius: 10px;
+                    padding: 20px 10px 20px 20px;
+                    border-color: var(--color-danger);
+                    box-shadow: 5px 5px 15px var(--color-danger);
+                    outline: none;
+                    width: 390px;
+                    height: 20px;
+                    margin-bottom: 15px;
+                    @include mobile {
+                        width: 100%; 
+                        box-sizing: border-box; 
+                    }
+                }
+
+                button[type="submit"] {
                     width: 50%;
                     padding: 10px;
                     border: none;
@@ -103,9 +267,108 @@ align-items: center;
                     font-weight: bold;
                     cursor: pointer;
                     border-radius: 10px;
+                    margin-top: 10px;
+                    margin-bottom: 20px;
+                    &:disabled {
+                        opacity: 0.8;
+                        cursor: not-allowed;
+                    }
+                    @include mobile {
+                        width: 100%; 
+                    }
+
+                .loading-branches {
+                    display: flex;
+                    gap: 8px;
+                    justify-content: center;
+                    align-items: center;
+                    height: 20px;
+                }
+                .branch {
+                     width: 4px;
+                    height: 20px;
+                    background: linear-gradient(to top, #5BFFB0, #D29CFF);
+                    border-radius: 3px;
+                    animation: grow 1.5s ease-in-out infinite;
+                    box-shadow: 0 0 12px rgba(91, 255, 176, 0.5);
+                }
+                .branch:nth-child(1) {
+                    animation-delay: 0s;
+                }
+                .branch:nth-child(2) {
+                    animation-delay: 0.2s;
+                }
+                .branch:nth-child(3) {
+                    animation-delay: 0.4s;
+                }
+                .branch:nth-child(4) {
+                    animation-delay: 0.6s;
+                }
+                .branch:nth-child(5) {
+                    animation-delay: 0.8s;
+                }
+                @keyframes grow {
+                    0%, 100% {
+                        height: 20px;
+                        opacity: 0.6;
+                    }
+                    50% {
+                        height: 35px;
+                        opacity: 1;
+                        box-shadow: 0 0 20px rgba(107, 142, 35, 0.7);
+                    }
                 }
             }
-
         }
     }
 }
+}
+    .registered-banner {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgb(238, 255, 245);
+        color: rgb(29, 43, 34);
+        padding: 12px 20px;
+        border-radius: 8px;
+        border: 1px solid rgb(235, 255, 204);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        animation: slideDown 0.3s ease-out;
+        max-width: 500px;
+        @include mobile {
+            width: 90%; 
+            max-width: none; 
+            padding: 10px 15px; 
+        }
+        .registered-icon {
+            font-size: 18px;
+        }
+        .error-message {
+            flex: 1;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .registered-close {
+            background: none;
+            border: none;
+            color: #c33;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+            &:hover {
+                background-color: rgba(204, 51, 51, 0.1);
+            }
+        }
+    }

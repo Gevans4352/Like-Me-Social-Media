@@ -5,11 +5,10 @@ import slay from "./namjoon i love my boyfriend icon.jpg"
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Context/Autheciator";
 import useCreateDate from "../UseCreateDate";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import CancelIcon from '@mui/icons-material/Cancel';
-import EmojiEmotionsOutlinedIcon from '@mui/icons-material/EmojiEmotionsOutlined';
 interface Comment {
     id: number;
     desc: string;
@@ -113,7 +112,7 @@ const handleDelete = (id: number) =>{
             <div className="write">
                 <img src={currentUser?.profilePic} alt="Current user profile pic" />
                 <textarea placeholder="Add Comments..." value={details} onChange={(e)=> setDetails(e.target.value)} required></textarea>
-                <button className="emojiButton"><EmojiEmotionsOutlinedIcon/></button>
+                {/* <button className="emojiButton"><EmojiEmotionsOutlinedIcon/></button> */}
                 <button onClick={handleSubmit}>Send!</button>
             </div>
           {comments.map(comment =>(

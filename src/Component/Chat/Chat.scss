@@ -1,223 +1,133 @@
-.chats{
-    flex: 2;
-    border-left: 1px solid grey;
-    border-right: 1px solid grey;
+.chats {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+}
+
+/* TOP */
+.top {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid grey;
+  align-items: center;
+
+  .user {
     display: flex;
-    flex-direction: column;
+    align-items: center;
 
-    height: 100%;
+    .texts {
+      display: flex;
+      flex-direction: column;
 
-    .top{
-        padding: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        border-bottom: 1px solid grey;
+      span {
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      p {
+        font-size: 13px;
+        color: #777;
+      }
     }
+  }
 
-    .user{
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        
-        img{
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
-    
-        .texts{
-            // display: flex;
-            flex-direction: column;
-            // gap: 5px;
-            
-        }
-    
-        span{
-            font-size: 18px;
-            font-weight: 500;
-    
-        }
-        
-        p{
-            font-size: 14px;
-            font-weight: 300;
-            color: rgb(82, 80, 80);
-        }
+  .userIcons {
+    display: flex;
+    gap: 12px;
 
+    & > * {
+      cursor: pointer;
     }
-    .userIcons{
-        display: flex;
-        align-items: center;
-        gap: 15px; 
-        & > * {
-            cursor: pointer;
-            width: 24px; 
-            height: 24px;
-            color: #777777; 
-            transition: color 0.2s ease;
-            
-            &:hover {
-                color: #ffffff; 
-            }
-        }
+  }
+}
 
-    }
+/* MESSAGES */
 .center {
-    padding: 20px;
-    flex: 1;
-    overflow: scroll;
+  flex: 1;
+  overflow-y: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* MESSAGE */
+.message {
+  display: flex;
+  gap: 10px;
+  max-width: 70%;
+
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+
+  .text {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 6px;
 
-    &::-webkit-scrollbar {
-        width: 10px;
+    p {
+      background: rgba(57, 61, 68, 0.5);
+      padding: 10px;
+      border-radius: 10px;
+      color: white;
     }
 
-    &::-webkit-scrollbar-track {
-       border-radius: 10px;
+    span {
+      font-size: 11px;
+      color: #777;
     }
+  }
 
-    &::-webkit-scrollbar-thumb {
-       border-radius: 10px;
+  &.own {
+    margin-left: auto;
+    flex-direction: row-reverse;
+
+    .text p {
+      background: rgb(35, 44, 31);
     }
-
-    &::-webkit-scrollbar-thumb:hover {
-        background: rgb(35, 44, 31); 
-    }
-    scrollbar-width: thin;
-    scrollbar-color: rgba(181, 212, 202, 0.082) rgba(181, 212, 202, 0);
-    
-
-    .message {
-        max-width: 70%;
-        display: flex;
-        gap: 10px; 
-        align-items: flex-start;
-        margin-top: 10px; 
-
-        /* Avatar images only */
-        > img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%; /* circular */
-            object-fit: cover;
-            flex-shrink: 0;
-        }
-
-        .text {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-
-            .messageImage {
-                width: 100%;
-                max-width: 300px; 
-                height: 300px;
-                object-fit: cover;
-                border-radius: 8px; 
-            }
-
-            p {
-                margin: 0;
-                padding: 10px 15px;
-                background-color: rgba(57, 61, 68, 0.5);
-                border-radius: 0px 10px 10px 10px;
-                color: white;
-                line-height: 1.4; 
-            }
-
-            span {
-                font-size: 12px;
-                color: #777777;
-                margin-left: 5px; 
-            }
-        }
-
-        /* Own message styles */
-        &.own {
-            align-self: flex-end;
-            flex-direction: row-reverse;
-
-            .text {
-                align-items: flex-end;
-
-                p {
-                    background-color: rgb(35, 44, 31);
-                    border-radius: 10px 0px 10px 10px;
-                }
-
-                span {
-                    margin-left: 0;
-                    margin-right: 5px; 
-                }
-            }
-        }
-    }
+  }
 }
 
-
-
-    .bottom{
-        margin-top: auto;
-        padding: 20px;
-        display: flex;
-        align-items: center;
-        gap: 10;
-        justify-content: space-between;
-        border-top: 1px solid #777777;
-        position: relative;
-
-        .iconns{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        cursor: pointer;
-        gap: 20;
-
-        .anotherSet{
-            width: 30px;
-            height: 20px;
-            gap: 10px;
-        }
-        }
-        .smileyFace{
-            width: 50px;
-            height: 30px;
-        }
-        .sendButton{
-            background-color: rgb(35, 44, 31);
-            padding: 10px 20px;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-        }
-        .input{
-            flex: 1;
-            background-color: rgba(57, 61, 68, 0.5);
-            border: none;
-            outline: none;
-            color: #777777;
-            border-radius:5px ;
-            font-size: 16px;
-            padding-left: 10px;
-            width: 300px;
-            height: 30px;
-
-        }
-    .emoji{
-        position: relative; 
-        
-       .picker{
-    position: absolute;
-    bottom: 100%;
-    right: 0; // Align to right instead of left
-    z-index: 1000;
-    width: 350px;
-    max-width: 90vw;
+/* INPUT */
+.bottom {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-top: 1px solid grey;
+  gap: 10px;
 }
-    }
-    }
+
+.input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background: rgba(57, 61, 68, 0.5);
+  color: #fff;
+}
+
+.sendButton {
+  background: rgb(35, 44, 31);
+  padding: 10px 16px;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .message {
+    max-width: 90%;
+  }
+
+  .bottom {
+    flex-wrap: wrap;
+  }
 }

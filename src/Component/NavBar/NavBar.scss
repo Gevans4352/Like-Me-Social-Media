@@ -1,305 +1,174 @@
 @import "../../style.scss";
 @import url('https://fonts.googleapis.com/css2?family=Alegreya:ital,wght@0,400..900;1,400..900&display=swap');
-.navBar{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    height: 55px;
-    border-bottom: 2px solid #F9F9F6;
-    position: sticky;
-    top: 0;
-    background-color: #DDE6D5;
-    z-index: 999 ;
-    @include mobile {
-        padding: 10px 15px; 
-    }
-    .left{
-        display: flex;
-        align-items: center;
-        gap: 30px;
-        span{
-            font-weight: bold;
-            font-size: 20px;
-            color: #7A867C;
-            font-family: "Alegreya", serif;
-            font-optical-sizing: auto;
-            font-style: normal;
-        }
-        .search{
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-radius: 10px;
-            border: .5px solid #F9F9F6;
-            padding: 5px;
-            background-color: transparent; 
-            transition: all 0.2s ease;
-            @include tablet {
-                gap: 5px;
-            }
-            @include mobile {
-                display: none;
-            }
-            .MuiSvgIcon-root { 
-                color: #888;
-                font-size: 20px;
-            }
-            input {
-                border: none;
-                outline: none;
-                background: transparent;
-                font-size: 14px;
-                color: #333;
-                padding: 3px 0;
-                width: 800px;
-                @include tablet {
-                    width: 250px; 
-                }
-                &::placeholder {
-                    color: #aaa;
-                    transition: opacity 0.2s ease;
-                }
-                &:focus::placeholder {
-                    opacity: 0.5; 
-                }
-            }
-            &:focus-within {
-                border-color: #d0d0d0; 
-                box-shadow: 0 0 0 2px rgba(240, 240, 240, 0.5); 
-            }
-            &:hover {
-                border-color: #e0e0e0;
-            }
-        }
-         @include mobile{
-            display: none;
-        } 
-        input{
-            border: none;
-            width: 450px;
-            background-color: transparent;
-            @include mobile{
-                display: none;
-            }
-        }
-    }
-}
-    .right{
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        position: relative;
-        
-        .user{
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 300;
-            @include mobile {
-               display: none;
-            }
-            
-            img{
-                width: 30px;
-                height: 30px;
-                object-fit: cover;
-                border-radius: 50%;
-
-                 @include mobile{
-                display: none;
-               }
-            }
-            span{
-                 @include mobile{
-                display: none;
-               }
-            }
-        }
-         .icon {
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            
-            &:hover {
-                transform: rotate(180deg);
-                
-                + .options {
-                    display: block;
-                }
-            }
-        }
-         
-        .options {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background-color: rgb(87, 84, 84);
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 10px;
-            min-width: 200px;
-            z-index: 1000;
-            @include mobile {
-                right: 5px; 
-                min-width: 150px; 
-            }
-            
-            &:hover {
-                display: block;
-            }
-            
-            span {
-                display: block;
-                padding: 8px 12px;
-                cursor: pointer;
-                
-                &:hover {
-                    background-color: #f5f5f5;
-                }
-            }
-
-            
-@import "../../style.scss";
 
 .navBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  height: 55px;
+  border-bottom: 2px solid #F9F9F6;
+  position: sticky;
+  top: 0;
+  background-color: #DDE6D5;
+  z-index: 999;
+
+  /* ================= LEFT SECTION ================= */
+  .left {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px 20px;
-    height: 55px;
-    border-bottom: 2px solid #F9F9F6;
-    position: sticky;
-    top: 0;
-    background-color: #DDE6D5;
-    z-index: 999;
-    
+    gap: 30px;
+    min-width: 0;
+
+    span {
+      font-weight: bold;
+      font-size: 20px;
+      color: #7A867C;
+      font-family: "Alegreya", serif;
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-radius: 10px;
+      border: 0.5px solid #F9F9F6;
+      padding: 5px;
+      background-color: transparent;
+      transition: all 0.2s ease;
+      flex: 1;
+      min-width: 180px;
+      max-width: 600px;
+
+      .MuiSvgIcon-root {
+        color: #888;
+        font-size: 20px;
+      }
+
+      input {
+        border: none;
+        outline: none;
+        background: transparent;
+        font-size: 14px;
+        color: #333;
+        width: 100%;
+        min-width: 0;
+
+        &::placeholder {
+          color: #aaa;
+        }
+      }
+
+      &:focus-within {
+        border-color: #d0d0d0;
+        box-shadow: 0 0 0 2px rgba(240, 240, 240, 0.5);
+      }
+
+      &:hover {
+        border-color: #e0e0e0;
+      }
+    }
+  }
+
+  /* ================= RIGHT SECTION ================= */
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 300;
+
+      img {
+        width: 30px;
+        height: 30px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+    .icon {
+      cursor: pointer;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: rotate(180deg);
+      }
+    }
+
+    .options {
+      display: none;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: rgb(87, 84, 84);
+      border-radius: 5px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 10px;
+      min-width: 200px;
+      z-index: 1000;
+
+      span {
+        display: block;
+        padding: 8px 12px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #f5f5f5;
+        }
+      }
+    }
+
+    /* keep dropdown open on hover */
+    .icon:hover + .options,
+    .options:hover {
+      display: block;
+    }
+  }
+
+  /* ================= TABLET ================= */
+  @include tablet {
+    padding: 10px 15px;
+
     .left {
-        display: flex;
-        align-items: center;
-        gap: 30px;
-        
-        span {
-            font-weight: bold;
-            font-size: 20px;
-            color: #7A867C;
-        }
-        
-        .search {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-radius: 10px;
-            border: .5px solid #F9F9F6;
-            padding: 5px;
+      gap: 15px;
 
-            @include mobile {
-                display: none;
-            }
-            
-            input {
-                border: none;
-                width: 450px;
-                background-color: transparent;
-
-                @include mobile {
-                    display: none;
-                }
-            }
-        }
+      .search {
+        max-width: 300px;
+      }
     }
-    
+
     .right {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        position: relative; 
-        
-        .user {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 300;
-            
-            img {
-                width: 30px;
-                height: 30px;
-                object-fit: cover;
-                border-radius: 50%;
+      gap: 12px;
+    }
+  }
 
-                @include mobile {
-                    display: none;
-                }
-            }
-            
-            span {
-                @include mobile {
-                    display: none;
-                }
-            }
-        }
-        
-        .icon {
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            
-            &:hover {
-                transform: rotate(180deg);
-                
-                + .options {
-                    display: block;
-                }
-            }
-        }
-        
-        .options {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            padding: 10px;
-            min-width: 200px;
-            z-index: 1000;
-            
-            &:hover {
-                display: block;
-            }
-            
-            span {
-                display: block;
-                padding: 8px 12px;
-                cursor: pointer;
-                
-                &:hover {
-                    background-color: #f5f5f5;
-                }
-            }
-            
-            p {
-                padding: 8px 12px;
-                margin: 5px 0 0 0;
-                font-size: 12px;
-                color: #777;
-                border-top: 1px solid #eee;
-            }
-            
-            .navLink {
-                text-decoration: none;
-                color: inherit;
-                
-                span {
-                    color: #ff4444;
-                    
-                    &:hover {
-                        background-color: #ffeeee;
-                    }
-                }
-            }
-        }
+  /* ================= MOBILE ================= */
+  @include mobile {
+    padding: 10px 12px;
+
+    .left {
+      gap: 10px;
+
+      span {
+        font-size: 18px;
+      }
+
+      .search {
+        display: none;
+      }
     }
-        }
+
+    .right {
+      gap: 10px;
+
+      .user {
+        display: none;
+      }
     }
+  }
 }

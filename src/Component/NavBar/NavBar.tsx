@@ -85,7 +85,6 @@ const NavBar = ()=>{
                 <Link to="/" style={{textDecoration: "none"}}>
                   <span>Likeme!</span>
                 </Link>
-                <AddHomeOutlinedIcon/>
                 <div onClick={toggle} style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }}>
                   {darkMode ? (
                     <WbSunnyOutlinedIcon />

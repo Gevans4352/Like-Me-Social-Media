@@ -90,7 +90,7 @@ const Register = () => {
     <div className="register">
       {!isOnline && (
         <div className="offline-notification">
-          ⚠️ You are currently offline. Please check your internet connection to
+           You are currently offline. Please check your internet connection to
           register.
         </div>
       )}
@@ -121,6 +121,7 @@ const Register = () => {
         <div className="right">
           <h1>Register</h1>
           <form onSubmit={handleRegister}>
+            <div className="avatarWrapper">
             <img
               src={avatar.url || imageOne}
               alt="Image Selected"
@@ -135,6 +136,7 @@ const Register = () => {
             <label htmlFor="file" className="avatarUpload">
               <FiUpload className="fiUpload" />
             </label>
+            </div>
             <input
               name="fullname"
               type="text"

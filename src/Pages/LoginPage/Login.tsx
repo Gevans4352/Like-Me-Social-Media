@@ -69,7 +69,7 @@ const Login = () => {
     <div className="login">
       {!isOnline && (
         <div className="offline-notification">
-          ⚠️ You are currently offline. Please check your internet connection to
+          You are currently offline. Please check your internet connection to
           login.
         </div>
       )}

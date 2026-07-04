@@ -25,7 +25,8 @@ body,
   height: 100%;
 }
 .login {
-  height: 100vh;
+  min-height: 100vh;
+  padding: 2rem;
   background-color: #1a0e23;
   display: flex;
   justify-content: center;
@@ -37,7 +38,7 @@ body,
   .card {
     display: flex;
     background-color: #24102d;
-    width: 70%;
+    width: min(1100px, 92%);
     border-radius: 10px;
     min-height: 600px;
     overflow: hidden;
@@ -55,41 +56,36 @@ body,
     }
     .left {
       flex: 1;
-      background: linear-gradient(rgba(29, 14, 36, 0.411), black),
+      background:
+        linear-gradient(rgba(29, 14, 36, 0.411), black),
         url("./dc05e2b0-f177-4bdb-939e-a5ebcb4cf234.jpg") center;
       background-size: cover;
-      padding: 50px;
+      padding:clamp(2rem,4vw,3rem);
       display: flex;
       flex-direction: column;
       gap: 30px;
       color: #fefefe;
       @include tablet {
-        padding: 30px;
+        .left {
+          flex: 0.9;
+        }
+        .right {
+          flex: 1.1;
+        }
       }
       @include mobile {
         display: none;
       }
       h2 {
-        font-size: 70px;
-        line-height: 75px;
-        @include tablet {
-          font-size: 60px;
-          line-height: 70px;
-        }
-        @include mobile {
-          font-size: 36px;
-          line-height: 40px;
-        }
-      }
-      h2 {
-        font-size: 95px;
-        line-height: 100px;
+        font-size: clamp(3rem, 7vw, 6rem);
+        line-height: 1;
       }
       span {
         font-size: 14px;
       }
       button {
-        width: 50%;
+        width: 100%;
+        max-width: 220px;
         padding: 10px;
         border: none;
         background-color: var(--color-primary-light);
@@ -100,7 +96,7 @@ body,
     }
     .right {
       flex: 1;
-      padding: 50px;
+      padding:clamp(2rem,4vw,3rem);
       display: flex;
       flex-direction: column;
       gap: 50px;
@@ -119,13 +115,16 @@ body,
       form {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        width: 100%;
         gap: 30px;
         @include mobile {
           gap: 20px;
         }
         .input-wrapper {
           position: relative;
-          width: 300px;
+          width: 100%;
+          max-width: 360px;
           margin-bottom: 15px;
           @include mobile {
             width: 100%;
@@ -163,7 +162,9 @@ body,
         object-fit: contain;
       }
       button[type="submit"] {
-        width: 50%;
+        width: 100%;
+        max-width: 360px;
+        height: 48px;
         padding: 10px;
         border: none;
         border-radius: 10px;
@@ -380,5 +381,19 @@ body,
     &:hover {
       background-color: rgba(204, 51, 51, 0.1);
     }
+  }
+
+}
+@media (max-width: 600px) and (orientation: landscape) {
+  .card {
+    flex-direction: column;
+  }
+
+  .left {
+    display: none;
+  }
+
+  .right {
+    width: 100%;
   }
 }
